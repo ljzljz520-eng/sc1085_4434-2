@@ -1,0 +1,4 @@
+/arena-emblem
+/web/dist/
+/web/node_modules/
+*.log

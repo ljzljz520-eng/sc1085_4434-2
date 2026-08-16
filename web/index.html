@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0d">
+  <title>Arena Emblem // 战队亮相</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <main class="arena" id="arena">
+    <canvas id="emblem" aria-label="可拖动旋转的战队粒子队标"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Arena Emblem 首页">
+        <span class="brand-mark">AE</span>
+        <span>ARENA EMBLEM</span>
+      </a>
+      <div class="signal"><span></span> LIVE REVEAL</div>
+      <button class="edit-toggle" id="edit-toggle" type="button" aria-expanded="false" aria-controls="editor">编辑明细</button>
+    </header>
+
+    <section class="reveal" aria-live="polite">
+      <p class="season" id="season">2026 // SEASON ZERO</p>
+      <h1 id="team-name">NOVA//9</h1>
+      <p class="motto" id="motto">MAKE THE DARK OURS</p>
+      <div class="accent-line"><span></span><b id="short-name">N9</b><span></span></div>
+    </section>
+
+    <nav class="roster" aria-label="选择战队">
+      <button class="roster-step" id="previous-team" type="button" aria-label="上一支战队">←</button>
+      <div class="roster-list" id="roster-list"></div>
+      <button class="roster-step" id="next-team" type="button" aria-label="下一支战队">→</button>
+    </nav>
+
+    <div class="controls" aria-label="队标控制">
+      <button id="rebuild" type="button"><span>SPACE</span> 破碎重组</button>
+      <div class="key-control"><span class="key">←</span><span class="key">↑</span><span class="key">↓</span><span class="key">→</span><b>自转 <output id="spin-state">顺时针 1.0×</output></b></div>
+      <div class="drag-control"><span class="drag-icon"></span><b>拖动旋转</b></div>
+    </div>
+
+    <aside class="editor" id="editor" aria-hidden="true">
+      <div class="editor-head">
+        <div>
+          <span class="eyebrow">SHOWCASE DETAIL</span>
+          <h2>编辑亮相明细</h2>
+        </div>
+        <button class="close-editor" id="close-editor" type="button" aria-label="关闭编辑面板">×</button>
+      </div>
+      <form id="detail-form">
+        <label>战队名称<input id="field-name" name="teamName" maxlength="28" required></label>
+        <div class="field-row">
+          <label>战队代号<input id="field-short" name="shortName" maxlength="4" required></label>
+          <label>赛季<input id="field-season" name="season" maxlength="32" required></label>
+        </div>
+        <label>赛季口号<input id="field-motto" name="motto" maxlength="40" required></label>
+        <label>战队简介<textarea id="field-description" name="description" maxlength="140" rows="3" required></textarea></label>
+        <div class="field-row color-row">
+          <label>粒子色<span class="color-input"><input id="field-primary" name="primary" type="color"><output id="primary-value">#f4f0e8</output></span></label>
+          <label>强调色<span class="color-input"><input id="field-secondary" name="secondary" type="color"><output id="secondary-value">#f24b3b</output></span></label>
+        </div>
+        <p class="form-status" id="form-status" role="status"></p>
+        <div class="form-actions">
+          <button class="preview-button" id="preview" type="button">即时预览</button>
+          <button class="save-button" type="submit">保存明细</button>
+        </div>
+      </form>
+    </aside>
+
+    <div class="loading" id="loading"><span></span><b>FORMING EMBLEM</b></div>
+  </main>
+  <script type="module" src="/assets/app.js"></script>
+</body>
+</html>
