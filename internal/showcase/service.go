@@ -78,5 +78,9 @@ func detailSnapshot(detail Detail) Detail {
 }
 
 func toEditableDetails(details []Detail) []Detail {
-	return details[:len(details)]
+	editable := make([]Detail, len(details))
+	for index, detail := range details {
+		editable[index] = detailSnapshot(detail)
+	}
+	return editable
 }
